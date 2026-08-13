@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Reference-only snippets (plain JSX for a Babel-in-browser setup, not part of the Next.js app).
+    "references/**",
   ]),
 ]);
 
