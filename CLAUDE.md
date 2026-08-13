@@ -17,6 +17,10 @@ Arcade Vault — plataforma para jugar online y competir por puntos. Actualmente
 
 No test runner is configured yet.
 
+# Skills
+
+Usa siempre /frontend-design para diseñar la interfaz de usuario.
+
 ## Architecture
 
 - App Router under `app/` — `app/layout.tsx` (root layout, Geist fonts), `app/page.tsx` (home page).
