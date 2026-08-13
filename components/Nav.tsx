@@ -1,18 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { getUser, setUser as persistUser, type User } from "@/lib/storage";
+import { setUser, useUser } from "@/lib/storage";
 
 export default function Nav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [user, setUser] = useState<User | null>(null);
-
-  useEffect(() => {
-    setUser(getUser());
-  }, [pathname]);
+  const user = useUser();
 
   const isActive = (section: "biblioteca" | "salon" | "login") => {
     if (section === "biblioteca") {
@@ -23,7 +19,6 @@ export default function Nav() {
   };
 
   const handleSignOut = () => {
-    persistUser(null);
     setUser(null);
   };
 
