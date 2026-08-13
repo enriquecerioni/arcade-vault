@@ -1,6 +1,6 @@
 # SPEC 01 — MVP Pantallas Arcade Vault
 
-**Estado:** Approved
+**Estado:** Implemented
 **Depende de:** ninguno
 **Fecha:** 2026-08-13
 
@@ -82,20 +82,20 @@ Tipo de ruta implícito de Next.js App Router (sin objeto `route` custom como en
 
 ## Criterios de aceptación
 
-- [ ] `npm run build` compila sin errores.
-- [ ] `npm run lint` pasa sin errores.
-- [ ] `/` muestra la grilla de juegos, filtra por búsqueda de texto y por categoría (chips), y muestra estado "sin resultados" cuando no hay coincidencias.
-- [ ] Click en una tarjeta de juego navega a `/juego/[id]` con el `id` correcto.
-- [ ] `/juego/[id]` muestra info del juego y un leaderboard con 10 filas simuladas; `/juego/id-inexistente` devuelve 404.
-- [ ] Botón "Jugar ahora" en Detalle navega a `/jugar/[id]`.
-- [ ] `/jugar/[id]` incrementa el puntaje automáticamente cada ~220ms mientras no está en pausa; "Pausa" detiene el incremento y "Reanudar" lo reactiva.
-- [ ] Botón "Fin" en el reproductor abre modal con puntaje final, input de iniciales y "Guardar puntuación"; al guardar, la entrada queda en `localStorage` bajo `av_scores` y se muestra confirmación en pantalla.
-- [ ] "Jugar de nuevo" reinicia puntaje/vidas/nivel sin salir de la pantalla; "Volver al Vault" navega a `/`.
-- [ ] `/login` permite loguearse con cualquier nombre (guarda `av_user` en `localStorage` y redirige a `/`) y también permite entrar como invitado.
-- [ ] Con sesión iniciada, el Nav muestra el nombre de usuario y un botón para cerrar sesión que limpia `av_user` y vuelve al estado sin sesión.
-- [ ] `/salon` muestra podio (top 3) y tabla completa por cada juego seleccionado en las tabs; con sesión iniciada aparece la fila "tu mejor marca".
-- [ ] Recargar la página (F5) en cualquier ruta preserva la sesión (si había) leyendo `av_user` de `localStorage`.
-- [ ] El panel de navegación móvil (hamburguesa) abre/cierra y permite navegar a Biblioteca, Salón de la Fama y Login/Cuenta.
+- [x] `npm run build` compila sin errores.
+- [x] `npm run lint` pasa sin errores.
+- [x] `/` muestra la grilla de juegos, filtra por búsqueda de texto y por categoría (chips), y muestra estado "sin resultados" cuando no hay coincidencias.
+- [x] Click en una tarjeta de juego navega a `/juego/[id]` con el `id` correcto.
+- [x] `/juego/[id]` muestra info del juego y un leaderboard con 10 filas simuladas; `/juego/id-inexistente` devuelve 404.
+- [x] Botón "Jugar ahora" en Detalle navega a `/jugar/[id]`.
+- [x] `/jugar/[id]` incrementa el puntaje automáticamente cada ~220ms mientras no está en pausa; "Pausa" detiene el incremento y "Reanudar" lo reactiva.
+- [x] Botón "Fin" en el reproductor abre modal con puntaje final, input de iniciales y "Guardar puntuación"; al guardar, la entrada queda en `localStorage` bajo `av_scores` y se muestra confirmación en pantalla.
+- [x] "Jugar de nuevo" reinicia puntaje/vidas/nivel sin salir de la pantalla; "Volver al Vault" navega a `/`.
+- [x] `/login` permite loguearse con cualquier nombre (guarda `av_user` en `localStorage` y redirige a `/`) y también permite entrar como invitado.
+- [x] Con sesión iniciada, el Nav muestra el nombre de usuario y un botón para cerrar sesión que limpia `av_user` y vuelve al estado sin sesión.
+- [x] `/salon` muestra podio (top 3) y tabla completa por cada juego seleccionado en las tabs; con sesión iniciada aparece la fila "tu mejor marca".
+- [x] Recargar la página (F5) en cualquier ruta preserva la sesión (si había) leyendo `av_user` de `localStorage`.
+- [x] El panel de navegación móvil (hamburguesa) abre/cierra y permite navegar a Biblioteca, Salón de la Fama y Login/Cuenta.
 
 ## Decisiones tomadas y descartadas
 
