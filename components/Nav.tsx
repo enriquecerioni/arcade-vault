@@ -10,9 +10,10 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
   const user = useUser();
 
-  const isActive = (section: "biblioteca" | "salon" | "login") => {
+  const isActive = (section: "home" | "biblioteca" | "salon" | "login") => {
+    if (section === "home") return pathname === "/";
     if (section === "biblioteca") {
-      return pathname === "/" || pathname.startsWith("/juego") || pathname.startsWith("/jugar");
+      return pathname === "/biblioteca" || pathname.startsWith("/juego") || pathname.startsWith("/jugar");
     }
     if (section === "salon") return pathname === "/salon";
     return pathname === "/login";
@@ -34,7 +35,8 @@ export default function Nav() {
           </div>
         </Link>
         <div className="links">
-          <Link href="/" className={isActive("biblioteca") ? "active" : ""}>Biblioteca</Link>
+          <Link href="/" className={isActive("home") ? "active" : ""}>Inicio</Link>
+          <Link href="/biblioteca" className={isActive("biblioteca") ? "active" : ""}>Biblioteca</Link>
           <Link href="/salon" className={isActive("salon") ? "active" : ""}>Salón de la Fama</Link>
         </div>
         <div className="spacer"></div>
@@ -53,7 +55,8 @@ export default function Nav() {
       <div className={"av-mobile-backdrop" + (open ? " open" : "")} onClick={closeMenu}></div>
       <aside className={"av-mobile-panel" + (open ? " open" : "")}>
         <div className="pixel neon-cyan" style={{ fontSize: 11, marginBottom: 16 }}>MENÚ</div>
-        <Link href="/" className={isActive("biblioteca") ? "active" : ""} onClick={closeMenu}>Biblioteca</Link>
+        <Link href="/" className={isActive("home") ? "active" : ""} onClick={closeMenu}>Inicio</Link>
+        <Link href="/biblioteca" className={isActive("biblioteca") ? "active" : ""} onClick={closeMenu}>Biblioteca</Link>
         <Link href="/salon" className={isActive("salon") ? "active" : ""} onClick={closeMenu}>Salón de la Fama</Link>
         <Link href="/login" className={isActive("login") ? "active" : ""} onClick={closeMenu}>
           {user ? "Cuenta" : "Iniciar Sesión"}
